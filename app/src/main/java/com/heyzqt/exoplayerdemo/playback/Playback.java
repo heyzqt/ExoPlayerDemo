@@ -1,5 +1,7 @@
 package com.heyzqt.exoplayerdemo.playback;
 
+import android.support.v4.media.session.MediaSessionCompat;
+
 /**
  * 通知音频播放
  * Created by heyzqt on 2019-08-19.
@@ -19,7 +21,7 @@ public interface Playback {
      */
     long getCurrentStreamPosition();
 
-    void play();
+    void play(MediaSessionCompat.QueueItem item);
 
     void pause();
 
@@ -39,7 +41,7 @@ public interface Playback {
 
         void onPlaybackStatusChanged(int state);
 
-        void onError();
+        void onError(String error);
 
         void setCurrentMediaId(String mediaId);
     }
